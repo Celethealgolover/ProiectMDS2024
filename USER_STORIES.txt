@@ -1,0 +1,16 @@
+   In cele ce urmează, vom defini cerințele si obiectivele utilizatorilor, așa zisele "User stories", exprimate atât din perspectiva clienților ce doresc închirierea unor vehicule, cât si a proprietarilor de automobile.
+   Astfel, cerințele clienților sunt următoarele:
+   -Ca si client, vreau sa îmi pot crea cont in aplicație, folosind emailul si setand o parola, de preferat sa rămână securizate!
+   -Ca si client, doresc sa îmi pot selecta categoria de vehicule pe care doresc sa o închiriez, brand-ul, motorizarea, precum si alte detalii tehnice!
+   -Ca si client, doresc opțiuni de închiriere pe o zi, o săptămâna, o luna sau chiar pe un an!
+   -Ca si client, doresc ordonarea mașinilor după preț, putere si alte specificații!
+   -Ca si client, doresc sa îmi pot selecta orele de ridicare si predare a vehiculului, precum si locația!
+   -Ca si client, doresc sa pot opta pentru asigurare si decont de combustibil!
+   Acum, cerințele proprietarilor care doresc sa își dea mașina spre închiriat sunt:
+   -Ca si proprietar, doresc sa îmi pot crea cont in aplicație, folosind emailul si setand o parola, de preferat sa rămână securizate!
+   -Ca si proprietar, doresc sa îmi specific toate detaliile tehnice ale mașinii, împreună cu poze reale!
+   -Ca si proprietar, doresc sa îmi impun propriul preț de închiriere pentru diverse perioade, preț ușor negociabil!
+   -Ca si proprietar, doresc reținerea unui depozit de bani de la client cu rolul de asigurare asupra bunului meu personal!
+   -Ca si proprietar, doresc sa fiu informat cu privința la taxele si impozitele ce trebuiesc plătite aplicației!
+   -Ca si proprietar, doresc sa aflu datele complete cu caracter personal ale clientului!
+ 
