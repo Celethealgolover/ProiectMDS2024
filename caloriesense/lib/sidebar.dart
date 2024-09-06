@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:caloriesense/ingredients.dart';
+import 'package:caloriesense/retete.dart';
+import 'package:caloriesense/tutorial.dart';
+import 'package:caloriesense/setari.dart';
+import 'package:caloriesense/main.dart';
 
 class Sidebar extends StatelessWidget {
   const Sidebar({Key? key}) : super(key: key);
@@ -25,6 +30,10 @@ class Sidebar extends StatelessWidget {
             title: const Text('Acasa'),
             onTap: () {
               Navigator.pop(context);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const MyApp()),
+              );
             },
           ),
           ListTile(
@@ -32,6 +41,10 @@ class Sidebar extends StatelessWidget {
             title: const Text('Ingredientele Mele'),
             onTap: () {
               Navigator.pop(context);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const Ingredients()),
+              );
             },
           ),
           ListTile(
@@ -39,6 +52,10 @@ class Sidebar extends StatelessWidget {
             title: const Text('Retete Mele'),
             onTap: () {
               Navigator.pop(context);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const Retete()),
+              );
             },
           ),
           ListTile(
@@ -46,6 +63,10 @@ class Sidebar extends StatelessWidget {
             title: const Text('Cum folosesc aplicatia'),
             onTap: () {
               Navigator.pop(context);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const Tutorial()),
+              );
             },
           ),
           ListTile(
@@ -53,6 +74,10 @@ class Sidebar extends StatelessWidget {
             title: const Text('Setari'),
             onTap: () {
               Navigator.pop(context);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const Setari()),
+              );
             },
           ),
         ],
