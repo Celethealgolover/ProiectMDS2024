@@ -1,0 +1,10 @@
+   In cele ce urmează, vom defini cerințele si obiectivele utilizatorilor, așa zisele "User stories", exprimate din perspectiva utilizatorului aplicatiei de calcul a valorilor nutritionale "CalorieSense"
+1. Ca utilizator, doresc ca aplicatia mobila "CalorieSense" sa fie valabila atat pentru iOS, cat si pentru Android.
+2. Ca utilizator, doresc ca aplicatia mobila "CalorieSense" sa aiba meniu de autentificare, respectiv signup si login.
+3. Ca utilizator, doresc ca aplicatia mobila "CalorieSense" sa aiba o interfata prietenoasa si atractiva, usor de utilizat pentru toata lumea.
+4. Ca utilizator, doresc ca aplicatia mobila "CalorieSense" sa ofere valori nutritionale concrete, de la kcalorii pana la zaharuri, proteine, fibre, etc.. atat per suta de grame, cat si per cantitate totala de preparat.
+5. Ca utilizator, doresc ca aplicatia mobila "CalorieSense" sa imi permita adaugarea alimentelor de baza, dar si a semipreparatelor, la care sa am acces la informatii nutritionale detaliate per suta de grame.
+6. Ca utilizator, doresc ca aplicatia mobila "CalorieSense" sa ofere feedback despre reteta mea.
+7. Ca utilizator, doresc ca aplicatia mobila "CalorieSense" sa ofere idei interesante si creative de retete noi.
+
+ 
