@@ -81,4 +81,19 @@ class Ing {
       throw Exception('Failed to load ingredients: $e');
     }
   }
+
+  static Future<void> deleteIngredient(String id) async {
+    try {
+      final directory = await getApplicationDocumentsDirectory();
+      final file = File('${directory.path}/ingredients.json');
+      final content = await file.readAsString();
+      final List<dynamic> jsonData = jsonDecode(content);
+
+      jsonData.removeWhere((item) => item['id'] == id);
+
+      await file.writeAsString(jsonEncode(jsonData));
+    } catch (e) {
+      throw Exception('Eroare: $e');
+    }
+  }
 }

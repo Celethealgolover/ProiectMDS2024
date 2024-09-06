@@ -62,6 +62,30 @@ class _AdaugaIngState extends State<AdaugaIng> {
     }
   }
 
+  static Future<void> deleteIngredient(String id) async {
+    try {
+      final directory = await getApplicationDocumentsDirectory();
+      final file = File('${directory.path}/ingredients.json');
+
+      if (!await file.exists()) {
+        throw Exception('Ingredientul nu exista.');
+      }
+
+
+      final content = await file.readAsString();
+      final List<dynamic> jsonData = jsonDecode(content);
+
+
+      final updatedData = jsonData.where((item) => item['id'] != id).toList();
+
+
+      final updatedContent = jsonEncode(updatedData);
+      await file.writeAsString(updatedContent);
+    } catch (e) {
+      throw Exception('Eroare: $e');
+    }
+  }
+
   Future<void> _saveIngredient(Ing ingredient) async {
     final directory = await getApplicationDocumentsDirectory();
     final path = '${directory.path}/ingredients.json';

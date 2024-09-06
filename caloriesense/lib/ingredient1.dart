@@ -3,8 +3,10 @@ import 'package:caloriesense/models/ing.dart';
 
 class Ingredient1 extends StatelessWidget {
   final Ing ing;
-  const Ingredient1({Key? key, required this.ing}) : super(key: key);
+  final Function(String) onDelete;
 
+  const Ingredient1({Key? key, required this.ing, required this.onDelete})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +42,7 @@ class Ingredient1 extends StatelessWidget {
                 icon: Icon(Icons.edit),
                 color: Colors.white,
                 iconSize: 15,
-                onPressed: () {
-                  // Add functionality for the edit button
-                },
+                onPressed: () {},
               ),
             ),
             Container(
@@ -58,7 +58,9 @@ class Ingredient1 extends StatelessWidget {
                 icon: Icon(Icons.delete),
                 color: Colors.white,
                 iconSize: 15,
-                onPressed: () {},
+                onPressed: () {
+                  onDelete(ing.id ?? '');
+                },
               ),
             ),
           ],

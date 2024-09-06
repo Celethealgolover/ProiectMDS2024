@@ -19,7 +19,19 @@ class _IngredientsState extends State<Ingredients> {
   void initState() {
     super.initState();
     ingredienteFuture =
-        Ing.loadIngredients(); // Asigură-te că inițializezi aici
+        Ing.loadIngredients(); 
+  }
+
+  void _deleteIngredient(String id) async {
+    try {
+      await Ing.deleteIngredient(id); 
+      setState(() {
+        ingredienteFuture =
+            Ing.loadIngredients(); 
+      });
+    } catch (e) {
+      print('Failed to delete ingredient: $e');
+    }
   }
 
   @override
@@ -56,7 +68,9 @@ class _IngredientsState extends State<Ingredients> {
                             Container(
                               margin: EdgeInsets.only(top: 30, bottom: 20),
                             ),
-                            for (Ing ing in ingrediente) Ingredient1(ing: ing),
+                            for (Ing ing in ingrediente)
+                              Ingredient1(
+                                  ing: ing, onDelete: _deleteIngredient),
                           ],
                         ),
                       ),
@@ -71,8 +85,9 @@ class _IngredientsState extends State<Ingredients> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const AdaugaIng()),
-                         );
+                          MaterialPageRoute(
+                              builder: (context) => const AdaugaIng()),
+                        );
                       },
                       child: const Icon(Icons.add, color: Colors.white),
                       backgroundColor: const Color.fromARGB(255, 174, 61, 194),
