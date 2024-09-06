@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:caloriesense/sidebar.dart';
+import 'package:caloriesense/ingredient1.dart';
 
 class Ingredients extends StatelessWidget {
   const Ingredients({Key? key}) : super(key: key);
@@ -21,7 +22,16 @@ class Ingredients extends StatelessWidget {
                 height: 15,
               ),
               searchBox(),
-              ListView()
+              Expanded(
+                  child: ListView(children: [
+                Container(
+                  margin: EdgeInsets.only(top: 50, bottom: 20),
+                ),
+                Ingredient1(),
+                Ingredient1(),
+                Ingredient1(),
+                Ingredient1(),
+              ]))
             ],
           )),
     );
