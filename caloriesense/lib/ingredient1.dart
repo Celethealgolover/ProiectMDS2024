@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:caloriesense/models/ing.dart';
+import 'package:caloriesense/view/viewig.dart';
 
 class Ingredient1 extends StatelessWidget {
   final Ing ing;
@@ -13,7 +14,12 @@ class Ingredient1 extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(bottom: 10),
       child: ListTile(
-        onTap: () {},
+        onTap: () {
+          showDialog(
+            context: context,
+            builder: (context) => ViewIg(ingredient: ing),
+          );
+        },
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
