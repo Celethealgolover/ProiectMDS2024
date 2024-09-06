@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:caloriesense/sidebar.dart';
 import 'package:caloriesense/ingredient1.dart';
+import 'package:caloriesense/models/ing.dart';
 
 class Ingredients extends StatelessWidget {
-  const Ingredients({Key? key}) : super(key: key);
+  Ingredients({Key? key}) : super(key: key);
+
+  final baza = Ing.baza();
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +30,7 @@ class Ingredients extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(top: 30, bottom: 20),
                 ),
-                Ingredient1(),
-                Ingredient1(),
-                Ingredient1(),
-                Ingredient1(),
+                for (Ing ing in baza) Ingredient1(ing: ing)
               ]))
             ],
           )),

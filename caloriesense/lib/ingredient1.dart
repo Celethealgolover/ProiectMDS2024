@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:caloriesense/models/ing.dart';
 
 class Ingredient1 extends StatelessWidget {
-  const Ingredient1({Key? key}) : super(key: key);
+  final Ing ing;
+  const Ingredient1({Key? key, required this.ing}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,7 @@ class Ingredient1 extends StatelessWidget {
         contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
         tileColor: Colors.white,
         title: Text(
-          'Ingredient 1',
+          ing.name!,
           style: TextStyle(
             color: Colors.black,
             fontSize: 20,

@@ -43,7 +43,7 @@ class Sidebar extends StatelessWidget {
               Navigator.pop(context);
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => const Ingredients()),
+                MaterialPageRoute(builder: (context) => Ingredients()),
               );
             },
           ),
