@@ -1,3 +1,7 @@
+import 'dart:convert';
+import 'dart:io';
+import 'package:path_provider/path_provider.dart';
+
 class Ing {
   String? id;
   String? name;
@@ -21,41 +25,60 @@ class Ing {
     required this.sare,
   });
 
-  static List<Ing> baza() {
-    return [
-      Ing(
-        id: '1',
-        name: 'Banana',
-        calories: 89.0,
-        protein: 1.1,
-        carb: 22.8,
-        zahar: 12.2,
-        fat: 0.3,
-        satfat: 0.1,
-        sare: 0.0,
-      ),
-      Ing(
-        id: '2',
-        name: 'Apple',
-        calories: 52.0,
-        protein: 0.3,
-        carb: 13.8,
-        zahar: 10.4,
-        fat: 0.2,
-        satfat: 0.0,
-        sare: 0.0,
-      ),
-      Ing(
-        id: '3',
-        name: 'Orange',
-        calories: 47.0,
-        protein: 1.0,
-        carb: 11.8,
-        zahar: 9.4,
-        fat: 0.2,
-        satfat: 0.0,
-        sare: 0.0,
-      ),
-    ];
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'calories': calories,
+      'protein': protein,
+      'carb': carb,
+      'zahar': zahar,
+      'fat': fat,
+      'satfat': satfat,
+      'sare': sare,
+    };
+  }
+
+  static Future<List<Ing>> loadIngredients() async {
+    try {
+      final directory = await getApplicationDocumentsDirectory();
+      final file = File('${directory.path}/ingredients.json');
+
+      if (!await file.exists()) {
+        final baseData = jsonEncode([
+          {
+            "id": "1",
+            "name": "Apa",
+            "calories": 0.0,
+            "protein": 0.0,
+            "carb": 0.0,
+            "zahar": 0.0,
+            "fat": 0.0,
+            "satfat": 0.0,
+            "sare": 0.0,
+          },
+        ]);
+        await file.writeAsString(baseData);
+      }
+
+      final content = await file.readAsString();
+      final List<dynamic> jsonData = jsonDecode(content);
+
+      return jsonData
+          .map((data) => Ing(
+                id: data['id'],
+                name: data['name'],
+                calories: data['calories'],
+                protein: data['protein'],
+                carb: data['carb'],
+                zahar: data['zahar'],
+                fat: data['fat'],
+                satfat: data['satfat'],
+                sare: data['sare'],
+              ))
+          .toList();
+    } catch (e) {
+      throw Exception('Failed to load ingredients: $e');
+    }
   }
 }

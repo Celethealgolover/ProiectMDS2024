@@ -1,7 +1,82 @@
+import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:caloriesense/models/ing.dart';
+import 'package:caloriesense/ingredients.dart';
 
-class AdaugaIng extends StatelessWidget {
+class AdaugaIng extends StatefulWidget {
   const AdaugaIng({Key? key}) : super(key: key);
+
+  @override
+  State<AdaugaIng> createState() => _AdaugaIngState();
+}
+
+class _AdaugaIngState extends State<AdaugaIng> {
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _caloriesController = TextEditingController();
+  final TextEditingController _proteinsController = TextEditingController();
+  final TextEditingController _carbsController = TextEditingController();
+  final TextEditingController _zaharController = TextEditingController();
+  final TextEditingController _fatController = TextEditingController();
+  final TextEditingController _satfatController = TextEditingController();
+  final TextEditingController _sareController = TextEditingController();
+
+  Future<void> _addIngredient() async {
+    final double? calories = double.tryParse(_caloriesController.text);
+    final double? protein = double.tryParse(_proteinsController.text);
+    final double? carb = double.tryParse(_carbsController.text);
+    final double? zahar = double.tryParse(_zaharController.text);
+    final double? fat = double.tryParse(_fatController.text);
+    final double? satfat = double.tryParse(_satfatController.text);
+    final double? sare = double.tryParse(_sareController.text);
+
+    if (calories != null &&
+        protein != null &&
+        carb != null &&
+        zahar != null &&
+        fat != null &&
+        satfat != null &&
+        sare != null) {
+      final newIngredient = Ing(
+        id: DateTime.now().millisecondsSinceEpoch.toString(),
+        name: _nameController.text,
+        calories: calories,
+        protein: protein,
+        carb: carb,
+        zahar: zahar,
+        fat: fat,
+        satfat: satfat,
+        sare: sare,
+      );
+
+      await _saveIngredient(newIngredient);
+
+      Navigator.pop(context);
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => Ingredients()),
+      );
+    } else {
+      print("Eroare.");
+    }
+  }
+
+  Future<void> _saveIngredient(Ing ingredient) async {
+    final directory = await getApplicationDocumentsDirectory();
+    final path = '${directory.path}/ingredients.json';
+
+    final file = File(path);
+    List<dynamic> ingredientsList = [];
+
+    if (await file.exists()) {
+      final contents = await file.readAsString();
+      ingredientsList = jsonDecode(contents);
+    }
+
+    ingredientsList.add(ingredient.toJson());
+    await file.writeAsString(jsonEncode(ingredientsList));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +92,16 @@ class AdaugaIng extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const TextField(
+                TextField(
+                  controller: _nameController,
                   decoration: InputDecoration(
                     labelText: 'Denumire Ingredient',
                     border: OutlineInputBorder(),
                   ),
                 ),
-                const SizedBox(height: 50),
-                const TextField(
+                const SizedBox(height: 20),
+                TextField(
+                  controller: _caloriesController,
                   decoration: InputDecoration(
                     labelText: 'Calorii',
                     border: OutlineInputBorder(),
@@ -32,7 +109,8 @@ class AdaugaIng extends StatelessWidget {
                   keyboardType: TextInputType.number,
                 ),
                 const SizedBox(height: 20),
-                const TextField(
+                TextField(
+                  controller: _proteinsController,
                   decoration: InputDecoration(
                     labelText: 'Proteine',
                     border: OutlineInputBorder(),
@@ -40,7 +118,8 @@ class AdaugaIng extends StatelessWidget {
                   keyboardType: TextInputType.number,
                 ),
                 const SizedBox(height: 20),
-                const TextField(
+                TextField(
+                  controller: _carbsController,
                   decoration: InputDecoration(
                     labelText: 'Carbohidrați',
                     border: OutlineInputBorder(),
@@ -48,7 +127,8 @@ class AdaugaIng extends StatelessWidget {
                   keyboardType: TextInputType.number,
                 ),
                 const SizedBox(height: 20),
-                const TextField(
+                TextField(
+                  controller: _zaharController,
                   decoration: InputDecoration(
                     labelText: 'Zaharuri',
                     border: OutlineInputBorder(),
@@ -56,7 +136,8 @@ class AdaugaIng extends StatelessWidget {
                   keyboardType: TextInputType.number,
                 ),
                 const SizedBox(height: 20),
-                const TextField(
+                TextField(
+                  controller: _fatController,
                   decoration: InputDecoration(
                     labelText: 'Grăsimi',
                     border: OutlineInputBorder(),
@@ -64,7 +145,8 @@ class AdaugaIng extends StatelessWidget {
                   keyboardType: TextInputType.number,
                 ),
                 const SizedBox(height: 20),
-                const TextField(
+                TextField(
+                  controller: _satfatController,
                   decoration: InputDecoration(
                     labelText: 'Grăsimi Saturate',
                     border: OutlineInputBorder(),
@@ -72,7 +154,8 @@ class AdaugaIng extends StatelessWidget {
                   keyboardType: TextInputType.number,
                 ),
                 const SizedBox(height: 20),
-                const TextField(
+                TextField(
+                  controller: _sareController,
                   decoration: InputDecoration(
                     labelText: 'Sare',
                     border: OutlineInputBorder(),
@@ -89,9 +172,7 @@ class AdaugaIng extends StatelessWidget {
               width: double.infinity,
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
-                onPressed: () {
-                  // modifica
-                },
+                onPressed: _addIngredient,
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   backgroundColor: Colors.purple,

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:caloriesense/sidebar.dart';
+import 'package:caloriesense/file_utils.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await ensureIngredientsFileExists();
   runApp(const MyApp());
 }
 
