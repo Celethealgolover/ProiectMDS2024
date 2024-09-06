@@ -25,7 +25,7 @@ class Ingredients extends StatelessWidget {
               Expanded(
                   child: ListView(children: [
                 Container(
-                  margin: EdgeInsets.only(top: 50, bottom: 20),
+                  margin: EdgeInsets.only(top: 30, bottom: 20),
                 ),
                 Ingredient1(),
                 Ingredient1(),
