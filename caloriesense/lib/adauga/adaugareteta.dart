@@ -52,7 +52,6 @@ class _AdaugaRetetaState extends State<AdaugaReteta> {
         }).toList(),
       );
 
-
       Recipe.saveRecipe(newRecipe).then((_) {
         Navigator.pop(context);
       });
