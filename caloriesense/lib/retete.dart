@@ -55,22 +55,29 @@ class _ReteteState extends State<Retete> {
                             final recipe = retete[index];
                             return Card(
                               margin: const EdgeInsets.symmetric(vertical: 10),
-                              child: ListTile(
-                                title: Text(
-                                  recipe.name ?? 'Rețetă Fără Nume',
-                                  style: const TextStyle(fontSize: 20),
-                                ),
-                                trailing: IconButton(
-                                  icon: const Icon(Icons.arrow_forward),
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            ViewReteta(reteta: recipe),
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          ViewReteta(reteta: recipe),
+                                    ),
+                                  );
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        recipe.name ?? 'Rețetă Fără Nume',
+                                        style: const TextStyle(fontSize: 20),
                                       ),
-                                    );
-                                  },
+                                      const Icon(Icons.arrow_forward),
+                                    ],
+                                  ),
                                 ),
                               ),
                             );
