@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:caloriesense/models/reteta.dart';
+import 'package:caloriesense/retete.dart';
 
 class ViewReteta extends StatelessWidget {
   final Recipe reteta;
@@ -84,7 +85,6 @@ class ViewReteta extends StatelessWidget {
               totalSalt,
             ),
             SizedBox(height: 20),
-
             Text(
               'Ingrediente:',
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
@@ -110,7 +110,6 @@ class ViewReteta extends StatelessWidget {
                 },
               ),
             ),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -138,7 +137,11 @@ class ViewReteta extends StatelessWidget {
                     ),
                     onPressed: () {
                       Recipe.deleteRecipe(reteta.id!).then((_) {
-                        Navigator.pop(context);
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Retete()),
+                        );
                       }).catchError((e) {
                         print('Eroare la ștergerea rețetei: $e');
                       });
