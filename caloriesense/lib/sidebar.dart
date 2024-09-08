@@ -15,12 +15,12 @@ class Sidebar extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           const UserAccountsDrawerHeader(
-            accountName: Text("accountName"),
-            accountEmail: Text("accountEmail"),
+            accountName: Text("Restaurant"),
+            accountEmail: Text("management@restaurant.ro"),
             currentAccountPicture: CircleAvatar(
               backgroundColor: Colors.white,
               child: Text(
-                "A",
+                "R",
                 style: TextStyle(fontSize: 40.0),
               ),
             ),
