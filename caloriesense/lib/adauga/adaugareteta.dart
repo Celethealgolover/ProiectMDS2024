@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:caloriesense/models/ing.dart';
 import 'package:caloriesense/models/reteta.dart';
+import 'package:caloriesense/retete.dart';
 
 class AdaugaReteta extends StatefulWidget {
   const AdaugaReteta({Key? key}) : super(key: key);
@@ -53,7 +54,10 @@ class _AdaugaRetetaState extends State<AdaugaReteta> {
       );
 
       Recipe.saveRecipe(newRecipe).then((_) {
-        Navigator.pop(context);
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const Retete()),
+        );
       });
     }
   }
