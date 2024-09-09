@@ -11,4 +11,8 @@
 10. Ca utilizator, doresc sa sterg ingrediente, in cazul in care au fost adaugate din greseala.
 
 
-    *Ca si task-uri tehnice indeplinite, avem UI&UX, urmand de imbunatatit experienta generala a utilizatorului prin adaugarea formularului de log-in/sign-up, respectiv conectarea la un web API .NET deja creat si conectat la baza de date mysql, pentru a oferi consistenta datelor si a elimina redundantele inutile. Pe parcursul dezvoltarii produsului software am intampinat diferite bug-uri, precum imposibilitatea adaugarii ingredientelor, pierderea lor, afisarea widget-urilor intr-o ordine nefireasca, etc.
+    *Ca si task-uri tehnice indeplinite, avem UI&UX realizate cu ajutorul framework-ului Flutter, folosind ca si limbaj de programare Dart.
+Codul scris in flutter este valabil atat pe ios cat si pe android, nefiind totusi la fel de eficient ca si codul nativ. Produsul software indeplineste niste functionalitati minimale, avand o interfata simpla dar robusta, prietenoasa cu utilizatorul.
+    Urmeaza sa imbunatatim experienta generala a utilizatorului prin adaugarea formularului de log-in/sign-up, respectiv conectarea la un web API ASP.NET deja creat si conectat la baza de date mysql, pentru a oferi consistenta datelor, stocarea eficienta si securizata a datelor si a elimina redundantele inutile. 
+     Pe parcursul dezvoltarii produsului software am intampinat diferite bug-uri, precum imposibilitatea adaugarii ingredientelor, pierderea lor, nefunctionarea butoanelor din main menu, afisarea widget-urilor intr-o ordine nefireasca, etc.
+     
