@@ -6,5 +6,7 @@
 5. Ca utilizator, doresc ca aplicatia mobila "CalorieSense" sa imi permita adaugarea alimentelor de baza, dar si a semipreparatelor, la care sa am acces la informatii nutritionale detaliate per suta de grame.
 6. Ca utilizator, doresc ca aplicatia mobila "CalorieSense" sa ofere feedback despre reteta mea.
 7. Ca utilizator, doresc ca aplicatia mobila "CalorieSense" sa ofere idei interesante si creative de retete noi.
-
+8. Ca utilizator, doresc sa imi pot salva retetele pentru a le reutiliza pe viitor.
+9. Ca utilizator, doresc adaugarea ingredientelor ce nu au calorii, de exemplu apa.
+10. Ca utilizator, doresc sa sterg ingrediente, in cazul in care au fost adaugate din greseala.
  
