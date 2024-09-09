@@ -1,4 +1,4 @@
-   In cele ce urmează, vom defini cerințele si obiectivele utilizatorilor, așa zisele "User stories", exprimate din perspectiva utilizatorului aplicatiei de calcul a valorilor nutritionale "CalorieSense"
+   *In cele ce urmează, vom defini cerințele si obiectivele utilizatorilor, așa zisele "User stories", exprimate din perspectiva utilizatorului aplicatiei de calcul a valorilor nutritionale "CalorieSense"
 1. Ca utilizator, doresc ca aplicatia mobila "CalorieSense" sa fie valabila atat pentru iOS, cat si pentru Android.
 2. Ca utilizator, doresc ca aplicatia mobila "CalorieSense" sa aiba meniu de autentificare, respectiv signup si login.
 3. Ca utilizator, doresc ca aplicatia mobila "CalorieSense" sa aiba o interfata prietenoasa si atractiva, usor de utilizat pentru toata lumea.
@@ -9,4 +9,6 @@
 8. Ca utilizator, doresc sa imi pot salva retetele pentru a le reutiliza pe viitor.
 9. Ca utilizator, doresc adaugarea ingredientelor ce nu au calorii, de exemplu apa.
 10. Ca utilizator, doresc sa sterg ingrediente, in cazul in care au fost adaugate din greseala.
- 
+
+
+    *Ca si task-uri tehnice indeplinite, avem UI&UX, urmand de imbunatatit experienta generala a utilizatorului prin adaugarea formularului de log-in/sign-up, respectiv conectarea la un web API .NET deja creat si conectat la baza de date mysql, pentru a oferi consistenta datelor si a elimina redundantele inutile. Pe parcursul dezvoltarii produsului software am intampinat diferite bug-uri, precum imposibilitatea adaugarii ingredientelor, pierderea lor, afisarea widget-urilor intr-o ordine nefireasca, etc.
