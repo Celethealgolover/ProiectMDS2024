@@ -143,9 +143,23 @@ class _AdaugaRetetaState extends State<AdaugaReteta> {
                 },
               ),
               const Spacer(),
-              ElevatedButton(
-                onPressed: salveazaReteta,
-                child: const Text('Salvează Rețeta'),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ElevatedButton(
+                    style:
+                        ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                    onPressed: () {
+                      // Navighează înapoi fără a salva
+                      Navigator.pop(context);
+                    },
+                    child: const Text('Iesire'),
+                  ),
+                  ElevatedButton(
+                    onPressed: salveazaReteta,
+                    child: const Text('Salvează Rețeta'),
+                  ),
+                ],
               ),
             ],
           ),
